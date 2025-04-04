@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowLuna 💪❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/15974067-paisagem-de-noite-estrelada-na-floresta-ilustracaoial-de-cenario-vetor.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            width: 30%;
+        }
+        iframe, img {
+            width: 100%;
+            border-radius: 15px;
+            margin: 10px 0;
+        }
+        h1, p {
+            margin: 5px 0;
+        }
+        .slideshow {
+            display: flex;
+            overflow: hidden;
+            border-radius: 15px;
+            position: relative;
+        }
+        .slide {
+            min-width: 100%;
+            transition: transform 0.5s ease;
+            flex-shrink: 0;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+        .timer {
+            font-size: 2em;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Eu te amo, Momoin 💪❤️</h1>
+        <iframe src="https://open.spotify.com/embed/track/0otRX6Z89qKkHkQ9OqJpKt" height="80" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <div class="slideshow" id="slideshow">
+           <img class="slide" src="https://pbs.twimg.com/media/GnuI82sXUAAtntQ?format=jpg&name=medium" alt="Foto 1">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI4rkWwAAUO2F?format=jpg&name=large" alt="Foto 2">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI4l6XUAERk77?format=jpg&name=large" alt="Foto 3">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI4rUWIAAIGhB?format=jpg&name=large" alt="Foto 4">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI4riXQAAzGHu?format=jpg&name=large" alt="Foto 5">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI82lXoAAeCeM?format=jpg&name=large" alt="Foto 6">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI82rWcAAEhCy?format=jpg&name=medium" alt="Foto 7">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuI82sXcAAFT-R?format=jpg&name=medium" alt="Foto 8">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJB60WgAAYw0v?format=jpg&name=large" alt="Foto 9">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJB7NXsAESP85?format=jpg&name=large" alt="Foto 10">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJB6qW0AAIqJi?format=jpg&name=large" alt="Foto 11">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJB7OXUAEYFSF?format=jpg&name=large" alt="Foto 12">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJGCGXgAAnm_K?format=jpg&name=large" alt="Foto 13">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJGCKWsAAf8Lh?format=jpg&name=large" alt="Foto 14">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJGCIXQAAO0TZ?format=jpg&name=large" alt="Foto 15">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJGCJXYAAPw-N?format=jpg&name=large" alt="Foto 16">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJN4uWQAA1uaN?format=jpg&name=large" alt="Foto 17">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJYFIW0AEh51c?format=jpg&name=large" alt="Foto 18">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJN4uWQAA1uaN?format=jpg&name=large" alt="Foto 19">
+            <img class="slide" src="https://pbs.twimg.com/media/GnuJN4uXEAApgmu?format=jpg&name=medium" alt="Foto 20">        </div>
+        <div class="controls">
+            <button onclick="showPreviousSlide()">&#9664; Voltar</button>
+            <button onclick="showNextSlide()">Avançar &#9654;</button>
+        </div>
+        <p>Te amo, em todos os universos 💪❤️</p>
+        <div class="timer" id="timer"></div>
+    </div>
+    <script>
+        function updateTimer() {
+            const startDate = new Date("2024-12-27");
+            const now = new Date();
+            const diff = Math.floor((now - startDate) / 1000);
+            const days = Math.floor(diff / 86400);
+            document.getElementById("timer").textContent = `Estamos juntos há ${days} dias!`;
+        }
+        setInterval(updateTimer, 500);
+
+        let currentIndex = 0;
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${100 * (i - index)}%)`;
+            });
+        }
+        function showNextSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+        function showPreviousSlide() {
+            const slides = document.querySelectorAll('.slide');
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+        showSlide(currentIndex);
+        setInterval(showNextSlide, 2000);
+    </script>
+</body>
+</html>
